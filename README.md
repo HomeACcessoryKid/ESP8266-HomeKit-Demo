@@ -1,8 +1,9 @@
 # ESP8266-HomeKit-Demo
-User part of the ESP8266-HomeKit foundation
+User part of the [ESP8266-HomeKit](https://github.com/HomeACcessoryKid/ESP8266-HomeKit) foundation
 
-Public Apple's HomeKit protocol code has been around for some time for more potent processors  
-(notably [HAP-NodeJS](https://github.com/KhaosT/HAP-NodeJS)). This is a rewrite for the ESP8266 for you to play with.
+Public Apple's HomeKit protocol code has been around for some time for more potent processors
+(notably [HAP-NodeJS](https://github.com/KhaosT/HAP-NodeJS)).  
+This is a rewrite for the ESP8266 for you to play with.
 
 For buid instructions please refer to the [wiki](https://github.com/HomeACcessoryKid/ESP8266-HomeKit-Demo/wiki).
 
@@ -13,7 +14,7 @@ For buid instructions please refer to the [wiki](https://github.com/HomeACcessor
 # About the code
 
 The code provides an example of how to create a basic accessory with a dimmable light and an on/off led (GPIO2).
-It uses the ESP8266-HomeKit API to create your HomeKit device without descending to the lower levels of the HAP protocol.
+It uses the [ESP8266-HomeKit](https://github.com/HomeACcessoryKid/ESP8266-HomeKit) API to create your HomeKit device without descending to the lower levels of the HAP protocol.
 
 ## Timings
 
