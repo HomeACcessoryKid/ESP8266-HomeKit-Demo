@@ -5,7 +5,7 @@ Public Apple's HomeKit protocol code has been around for some time for more pote
 (notably [HAP-NodeJS](https://github.com/KhaosT/HAP-NodeJS)).  
 This is a rewrite for the ESP8266 for you to play with.
 
-For buid instructions please refer to the [wiki](https://github.com/HomeACcessoryKid/ESP8266-HomeKit-Demo/wiki).
+For build instructions please refer to the [wiki](https://github.com/HomeACcessoryKid/ESP8266-HomeKit-Demo/wiki).
 
 # Demo
 
