@@ -1,12 +1,10 @@
 # ESP8266-HomeKit-Demo
 User part of the ESP8266-HomeKit foundation
 
-# content still needs to be updated after re-structure!
-
 Public Apple's HomeKit protocol code has been around for some time for more potent processors  
-(notably [HAP-NodeJS](https://github.com/KhaosT/HAP-NodeJS)). This is a rewrite for the ESP8266 for you to play with. This project uses [ESP8266_RTOS_SDK-V1.5.0](https://github.com/espressif/ESP8266_RTOS_SDK) and [WolfCrypt 3.9.8](https://github.com/wolfSSL/wolfssl/releases/tag/v3.9.8) to build the software on.
+(notably [HAP-NodeJS](https://github.com/KhaosT/HAP-NodeJS)). This is a rewrite for the ESP8266 for you to play with.
 
-For buid instructions please refer to the [wiki](https://github.com/HomeACcessoryKid/ESP8266-HomeKit/wiki).
+For buid instructions please refer to the [wiki](https://github.com/HomeACcessoryKid/ESP8266-HomeKit-Demo/wiki).
 
 # Demo
 
@@ -14,8 +12,8 @@ For buid instructions please refer to the [wiki](https://github.com/HomeACcessor
 
 # About the code
 
-The code provides all the services required to pair iOS with an IP device and to operate that device once paired with multiple iOS devices. It runs on even the smallest ESP8266 device like the ESP-01. It attempts to create
-an API level to create your HomeKit device without descending to the lower levels of the HAP protocol.
+The code provides an example of how to create a basic accessory with a dimmable light and an on/off led (GPIO2).
+It uses the ESP8266-HomeKit API to create your HomeKit device without descending to the lower levels of the HAP protocol.
 
 ## Timings
 
@@ -50,14 +48,11 @@ were implemented.
 
 3. [ESP8266_RTOS_SDK](https://github.com/espressif/ESP8266_RTOS_SDK) - Espressif for their great product
 
-4. [WolfCrypt](https://www.wolfssl.com/wolfSSL/Products-wolfcrypt.html) - For a great one stop crypto library
-
 # Notes
 
 Please note that this software was produced without any reference to any proprietary documentation or information. I am not a MFi licensee, nor do I have access to any related information.
 
-Espressif uses MIT license. WolfCrypt uses GPLv2 or higher license. For the purpose of this distribution you should use GPLv3.  
-This is based on the changes I had to make to Wolfcrypt and to be compatible with Apache-2.0 license.
+Espressif uses MIT license.  
 
 # License
 
