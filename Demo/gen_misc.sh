@@ -11,7 +11,7 @@ echo "based on gen_misc.sh version 20150911"
 echo ""
 
 if [ ! $SDK_PATH ]; then
-    export SDK_PATH=$(dirname $(pwd))
+    export SDK_PATH=$(dirname $(dirname $(pwd)))
 fi
 echo "SDK_PATH:"
 echo "$SDK_PATH"
@@ -169,5 +169,5 @@ make clean
 make BOOT=$boot APP=$app SPI_SPEED=$spi_speed SPI_MODE=$spi_mode SPI_SIZE_MAP=$spi_size_map
 
 date
-ls -l ../bin/eagle.[if]*
-echo ../../esptool/esptool.py --baud 230400 -p /dev/cu.usbserial-AH02MF3H write_flash 0x00000 ../bin/eagle.flash.bin 0x14000 ../bin/eagle.irom0text.bin
+ls -l ../../bin/eagle.[if]*
+echo ../../../esptool/esptool.py --baud 230400 -p /dev/cu.usbserial-AH02MF3H write_flash 0x00000 ../../bin/eagle.flash.bin 0x14000 ../../bin/eagle.irom0text.bin
