@@ -5,7 +5,7 @@ Public Apple's HomeKit protocol code has been around for some time for more pote
 (notably [HAP-NodeJS](https://github.com/KhaosT/HAP-NodeJS)).  
 This is a rewrite for the ESP8266 for you to play with.
 
-# Build instructions for ESP8266-HomeKit-Demo Demo
+# Build instructions for ESP8266-HomeKit-Demo button-led
 
 ## Prerequisites
 - [ESP8266-HomeKit](https://github.com/HomeACcessoryKid/ESP8266-HomeKit)  
@@ -21,10 +21,10 @@ If you did not set up your WiFi, do so by uncommenting the first block of code i
 ```bash
 ESP8266_RTOS_SDK$ cd ESP8266-HomeKit-Demo
 ```
-- Goto the Demo directory
+- Goto the button-led directory
 ```bash
-ESP8266-HomeKit-Demo$ cd Demo
-Demo$ ./gen_misc.sh  
+ESP8266-HomeKit-Demo$ cd button-led
+button-led$ ./gen_misc.sh  
 ```
 Use all the defaults or experiment with alternatives...  
 This will create (after several minutes) the files:
