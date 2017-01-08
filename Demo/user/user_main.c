@@ -76,10 +76,10 @@ void    led_task(void *arg) //make transfer of gpio via arg, starting as a stati
     value=cJSON_CreateBool(0); //value doesn't matter
     while(1) {
         vTaskDelay(1500); //15 sec
-        original=GPIO_INPUT_GET(GPIO_ID_PIN(2)); //get original state
+        original=GPIO_INPUT(GPIO_Pin_2); //get original state
 //      os_printf("original:%d\n",original);
         value->type=original^1;
-        GPIO_OUTPUT_SET(GPIO_ID_PIN(2),original^1); // and toggle
+        GPIO_OUTPUT(GPIO_Pin_2,original^1); // and toggle
         change_value(    gpio2.aid,gpio2.iid,value);
         send_events(NULL,gpio2.aid,gpio2.iid);
     }
@@ -87,14 +87,19 @@ void    led_task(void *arg) //make transfer of gpio via arg, starting as a stati
 
 void led(int aid, int iid, cJSON *value, int mode)
 {
+    GPIO_ConfigTypeDef gpio2_in_cfg;
+
     switch (mode) {
         case 1: { //changed by gui
             char *out; out=cJSON_Print(value);  os_printf("led %s\n",out);  free(out);  // Print to text, print it, release the string.
-            if (value) GPIO_OUTPUT_SET(GPIO_ID_PIN(2), value->type);
+            if (value) GPIO_OUTPUT(GPIO_Pin_2, value->type);
         }break;
         case 0: { //init
-            PIN_FUNC_SELECT(GPIO_PIN_REG_2,FUNC_GPIO2);
-            PIN_PULLUP_EN(GPIO_PIN_REG_2);
+            gpio2_in_cfg.GPIO_IntrType = GPIO_PIN_INTR_DISABLE;         //no interrupt
+            gpio2_in_cfg.GPIO_Mode     = GPIO_Mode_Output;              //Output mode
+            gpio2_in_cfg.GPIO_Pullup   = GPIO_PullUp_EN;                //improves transitions
+            gpio2_in_cfg.GPIO_Pin      = GPIO_Pin_2;                    //Enable GPIO
+            gpio_config(&gpio2_in_cfg);                                 //Initialization function
             led(aid,iid,value,1);
             gpio2.aid=aid; gpio2.iid=iid;
             xTaskCreate(led_task,"led",512,NULL,2,NULL);
@@ -115,11 +120,11 @@ void identify_task(void *arg)
     os_printf("identify_task started\n");
     while(1) {
         while(!xQueueReceive(identifyQueue,NULL,10));//wait for a queue item
-        original=GPIO_INPUT_GET(GPIO_ID_PIN(2)); //get original state
+        original=GPIO_INPUT(GPIO_Pin_2); //get original state
         for (i=0;i<2;i++) {
-            GPIO_OUTPUT_SET(GPIO_ID_PIN(2),original^1); // and toggle
+            GPIO_OUTPUT(GPIO_Pin_2,original^1); // and toggle
             vTaskDelay(30); //0.3 sec
-            GPIO_OUTPUT_SET(GPIO_ID_PIN(2),original^0);
+            GPIO_OUTPUT(GPIO_Pin_2,original^0);
             vTaskDelay(30); //0.3 sec
         }
     }
@@ -133,8 +138,6 @@ void identify(int aid, int iid, cJSON *value, int mode)
         }break;
         case 0: { //init
         identifyQueue = xQueueCreate( 1, 0 );
-        PIN_FUNC_SELECT(GPIO_PIN_REG_2,FUNC_GPIO2);
-        PIN_PULLUP_EN(GPIO_PIN_REG_2);
         xTaskCreate(identify_task,"identify",256,NULL,2,NULL);
         }break;
         case 2: { //update
