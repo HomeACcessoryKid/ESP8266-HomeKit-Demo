@@ -53,8 +53,9 @@ script:
   - cd ..
   - cd ESP8266-HomeKit-Demo
   - cd Demo
-  - ./gen_misc.sh
+  - (echo "y") | ./gen_misc.sh
   - cd ..
   - cd button-led
+  - (echo "y") | ./gen_misc.sh
   - cd ..
   - echo 'Build Done'
