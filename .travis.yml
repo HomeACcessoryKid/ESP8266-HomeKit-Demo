@@ -44,6 +44,11 @@ script:
   - git clone https://github.com/espressif/ESP8266_RTOS_SDK.git
   - cd ESP8266_RTOS_SDK
   - git reset --hard ae29bf8
+  - echo 'Modifying ESP8266_RTOS_SDK Memory Map'
+  - cd ld
+  - sed -i 's/0x5C000/0x67000/g' eagle.app.v6.ld
+  - cd ..
+  - sed -i 's/eagle.irom0text.bin---->0x20000/eagle.irom0text.bin---->0x14000/g' Makefile
   - git clone https://github.com/HomeACcessoryKid/ESP8266-HomeKit.git
   - git clone https://github.com/HomeACcessoryKid/ESP8266-HomeKit-Demo.git 
   - echo "ESP8266-HomeKit/" >> .gitignore
