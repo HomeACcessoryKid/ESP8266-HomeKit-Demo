@@ -1,4 +1,4 @@
-# ESP8266-HomeKit-Demo
+# ESP8266-HomeKit-Demo [![Build Status](https://travis-ci.org/HomeACcessoryKid/ESP8266-HomeKit-Demo.svg?branch=master)](https://travis-ci.org/HomeACcessoryKid/ESP8266-HomeKit-Demo)
 User part of the [ESP8266-HomeKit](https://github.com/HomeACcessoryKid/ESP8266-HomeKit) foundation
 
 Public Apple's HomeKit protocol code has been around for some time for more potent processors
