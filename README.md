@@ -38,6 +38,10 @@ Verify happens every time an iOS device reconnected to the HomeKit device. Ideal
 
 The HomeKit code is approximately 400K and about 18K of RAM is left for other purposes. During Pairing so much RAM is used that it is required to launch most code after pairing is done.
 
+# Practical HardWare
+
+There is a repository for practical [HardWare](https://github.com/HomeACcessoryKid/HardWare) to deploy your code.
+
 # Thanks
 
 I want to thank a number of projects which made this possible:
