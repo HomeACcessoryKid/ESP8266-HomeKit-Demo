@@ -306,7 +306,8 @@ void user_init(void)
     
     //try to only do the bare minimum here and do the rest in hkc_user_init
     // if not you could easily run out of stack space during pairing-setup
-    hkc_init("AiLight");
+    //hkc_init("AiLight"); //works with hkc version < 20171029-3
+    hkc_init("AiLight",LIGHTBULB_CAT); //the Accessory Category requires hkc version > 20171029-3
     
     os_printf("end of user_init @ %d\n",system_get_time()/1000);
 }
