@@ -169,5 +169,5 @@ make clean
 make BOOT=$boot APP=$app SPI_SPEED=$spi_speed SPI_MODE=$spi_mode SPI_SIZE_MAP=$spi_size_map
 
 date
-ls -l ../../bin/eagle.[if]*
-echo ../../../esptool/esptool.py --baud 230400 -p /dev/cu.usbserial-AH02MF3H write_flash 0x00000 ../../bin/eagle.flash.bin 0x14000 ../../bin/eagle.irom0text.bin
+ls -l $BIN_PATH/eagle.[if]*
+echo ../../../esptool/esptool.py --baud 230400 -p /dev/cu.usbserial-* write_flash 0x00000 $BIN_PATH/eagle.flash.bin 0x14000 $BIN_PATH/eagle.irom0text.bin
