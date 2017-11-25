@@ -93,7 +93,7 @@ void gpio_intr_handler() {
     uint32_t gpio_status = GPIO_REG_READ(GPIO_STATUS_ADDRESS);
     os_printf("interrupt@%dus: mask=0x%02x, status=0x%02x\n",system_get_time(),gpio_mask,gpio_status);
     for (i=0 ; i<16 ; i++)
-        if ( (0x1<<i) & gpio_status & gpio_intr_callbacks[i]!= NULL )
+        if ( (0x1<<i) & gpio_status && gpio_intr_callbacks[i]!= NULL )
             (*gpio_intr_callbacks[i])();   
     GPIO_REG_WRITE(GPIO_STATUS_W1TC_ADDRESS, gpio_status );     //clear interrupt status
 }
