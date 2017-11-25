@@ -9,7 +9,7 @@ For the latest build instructions please refer to the [wiki](https://github.com/
 
 # Demo
 
-[![HomeKit Demo](https://img.youtube.com/vi/Xnr-utWDIR8/0.jpg)](https://www.youtube.com/watch?v=Xnr-utWDIR8)
+[![HomeKit Demo](https://img.youtube.com/vi/Xnr-utWDIR8/0.jpg)](https://youtu.be/Xnr-utWDIR8)[![RGB led lamp](https://img.youtube.com/vi/rFsdnb2hyEo/0.jpg)](https://youtu.be/rFsdnb2hyEo)
 
 # About the code
 
