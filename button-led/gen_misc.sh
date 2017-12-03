@@ -41,10 +41,13 @@ echo "boot mode: $boot"
 echo ""
 
 echo "STEP 2: choose bin generate(0=eagle.flash.bin+eagle.irom0text.bin, 1=user1.bin, 2=user2.bin)"
-echo "enter (0/1/2, default 0):"
+echo "enter (0/1/2, default 1):"
 read input
 
 if [ -z "$input" ]; then
+	app=1
+        echo "generate bin: user1.bin"
+elif [ $input == 0 ]; then
     if [ $boot != none ]; then
     	boot=none
 	echo "ignore boot"
@@ -125,10 +128,14 @@ echo "    3=2048KB( 512KB+ 512KB)"
 echo "    4=4096KB( 512KB+ 512KB)"
 echo "    5=2048KB(1024KB+1024KB)"
 echo "    6=4096KB(1024KB+1024KB)"
-echo "enter (0/2/3/4/5/6, default 0):"
+echo "enter (0/2/3/4/5/6, default 4):"
 read input
 
 if [ -z "$input" ]; then
+    spi_size_map=4
+    echo "spi size: 4096KB"
+    echo "spi ota map:  512KB + 512KB"
+elif [ $input == 0 ]; then
     spi_size_map=0
     echo "spi size: 512KB"
     echo "spi ota map:  256KB + 256KB"
@@ -171,3 +178,6 @@ make BOOT=$boot APP=$app SPI_SPEED=$spi_speed SPI_MODE=$spi_mode SPI_SIZE_MAP=$s
 date
 ls -l $BIN_PATH/eagle.[if]*
 echo ../../../esptool/esptool.py --baud 230400 -p /dev/cu.usbserial-* write_flash 0x00000 $BIN_PATH/eagle.flash.bin 0x14000 $BIN_PATH/eagle.irom0text.bin
+ls -l $BIN_PATH/upgrade/user*bin
+echo ../../../esptool/esptool.py --baud 230400 -p /dev/cu.usbserial-* write_flash     0x0 $BIN_PATH/boot_v1.7.bin    0x1000 $BIN_PATH/upgrade/user1.4096.new.4.bin
+
