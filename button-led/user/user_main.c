@@ -80,6 +80,7 @@ void    led_intr()
         gpio2.value->type=new;
         change_value(    gpio2.aid,gpio2.iid,gpio2.value);
         send_events(NULL,gpio2.aid,gpio2.iid);
+        do_fota_update("1.0");
     }
 }
 
